@@ -4,8 +4,11 @@ import tea "charm.land/bubbletea/v2"
 
 func initialModel() model {
 	return model{
-		list:     []string{"aboba", "bimbim", "GoGoGo"},
-		selected: make(map[int]struct{}),
+		lists: [][]string{
+			{"abo44ba", "bimbim", "GoGoG141o"},
+			{"bib", "bi414n", "bim", "eg41e"},
+			{"bom", "ag4141414141a"},
+		},
 	}
 }
 

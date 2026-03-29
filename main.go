@@ -8,9 +8,10 @@ import (
 )
 
 type model struct {
-	list     []string
-	cursor   int
-	selected map[int]struct{}
+	lists  [][]string
+	cursor int
+	width  int
+	height int
 }
 
 func main() {

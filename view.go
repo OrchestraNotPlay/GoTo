@@ -1,27 +1,19 @@
 package main
 
 import (
-	"fmt"
-
 	tea "charm.land/bubbletea/v2"
+	lipg "charm.land/lipgloss/v2"
 )
 
 func (m model) View() tea.View {
-	s := "TODO\n\n"
+	var viewList []string
 
-	for i, item := range m.list {
-		cursor := " "
-		if m.cursor == i {
-			cursor = ">"
-		}
-
-		checked := " "
-		if _, ok := m.selected[i]; ok {
-			checked = "x"
-		}
-
-		s += fmt.Sprintf("%s [%s] %s\n", cursor, checked, item)
+	for _, list := range m.lists {
+		s := lipg.JoinVertical(lipg.Center, list...)
+		viewList = append(viewList, titleStyle.Render(s))
 	}
+
+	s := lipg.JoinHorizontal(lipg.Center, viewList...)
 
 	return tea.NewView(s)
 }
